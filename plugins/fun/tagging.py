@@ -30,22 +30,55 @@ async def send_tags(client, chat_id, members):
 #   .tagall
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+TAG_TEXTS = [
+    "⚡ Oye uth ja bhai 😴",
+    "🔥 Aaj kuch bada karna hai kya?",
+    "😎 Online ho ya so rahe ho?",
+    "💀 Reply nahi kiya to fine lagega",
+    "🚀 Chal attendance laga de",
+    "👀 Dekh raha hu sabko...",
+    "😂 Ghost mat ban bhai"
+]
+
 @Client.on_message(filters.me & filters.command("tagall", prefixes="."))
 async def tagall_command(client, message):
-    args        = message.text.split(None, 1)
+    args = message.text.split(None, 1)
     custom_text = args[1].strip() if len(args) > 1 else None
+
     await message.delete()
+
     members = await get_members(client, message.chat.id)
+    
+    # 👉 random order
+    random.shuffle(members)
+
     header = (
-        f"𝛅 𝛕 ⋏ ᰻⃪᱂ 𐌺 ⋆ ‹𝟹   ***𝐃𝐨 𝐘𝐨𝐮 𝐊𝐧𝐨𝐰 𝐖𝐡𝐨 𝐈𝐬 𝐌𝐲 𝐎𝐰𝐧𝐞𝐫.?***\n\n"
-        f"⍣⃪‌ ᶦ ‌ᵃᵐ⛦⃕‌***𝑫𝑬𝑽𝑰𝑳***❛𝆺𝅥⤹࿗𓆪ꪾ™   "
-        f"_{custom_text if custom_text else '𝐖𝐡𝐚𝐭𝐬𝐚𝐩𝐩 𝐍𝐮𝐦𝐛𝐞𝐫 𝐃𝐨𝐠𝐞 𝐀𝐩𝐧𝐚 𝐓𝐮𝐦..?😕'}_\n\n"
+        f"❁═════⟬ 𝐓𝐀𝐆 𝐀𝐋𝐋 ⟭═════❁\n\n"
         f"{OWNER_TAG}"
     )
+
     await client.send_message(message.chat.id, header)
     await asyncio.sleep(1)
-    await send_tags(client, message.chat.id, members)
 
+    for user in members:
+        mention = f"[{user.first_name}](tg://user?id={user.id})"
+
+        # 👉 agar custom text hai to wahi use hoga
+        if custom_text:
+            text = custom_text
+        else:
+            text = random.choice(TAG_TEXTS)
+
+        try:
+            await client.send_message(
+                message.chat.id,
+                f"{mention} {text}",
+                disable_web_page_preview=True
+            )
+            await asyncio.sleep(1)
+
+        except FloodWait as e:
+            await asyncio.sleep(e.value)
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #   .gmtag
