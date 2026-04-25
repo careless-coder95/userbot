@@ -1,4 +1,5 @@
 import asyncio
+from pyrogram import enums
 from pyrogram import Client, filters
 from pyrogram.types import ChatPermissions
 from pyrogram.errors import ChatAdminRequired, UserAdminInvalid, FloodWait
@@ -48,11 +49,17 @@ async def kick_command(client, message):
     await client.ban_chat_member(message.chat.id, user.id)
     await client.unban_chat_member(message.chat.id, user.id)
     result = (
+        f"```\n"
         f"• {stylish('USER')}   : [{user.first_name}](tg://user?id={user.id})\n"
         f"• {stylish('ID')}     : `{user.id}`\n"
         f"• {stylish('ACTION')} : Kicked ✅"
+        f"```"
     )
-    await message.edit(build_output("❁═════⟬ ᴋɪᴄᴋᴇᴅ ⟭═════❁", result), disable_web_page_preview=True)
+    await message.edit(
+        build_output("❁═════⟬ ᴋɪᴄᴋᴇᴅ ⟭═════❁", result),
+        parse_mode=enums.ParseMode.MARKDOWN,
+        disable_web_page_preview=True
+    )
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -69,11 +76,17 @@ async def ban_command(client, message):
         return
     await client.ban_chat_member(message.chat.id, user.id)
     result = (
+        f"```\n"
         f"• {stylish('USER')}   : [{user.first_name}](tg://user?id={user.id})\n"
         f"• {stylish('ID')}     : `{user.id}`\n"
         f"• {stylish('ACTION')} : Banned 🔨"
+        f"```"
     )
-    await message.edit(build_output("❁═════⟬ ʙᴀɴɴᴇᴅ ⟭═════❁", result), disable_web_page_preview=True)
+    await message.edit(
+        build_output("❁═════⟬ ʙᴀɴɴᴇᴅ ⟭═════❁", result),
+        parse_mode=enums.ParseMode.MARKDOWN,
+        disable_web_page_preview=True
+    )
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -89,10 +102,16 @@ async def unban_command(client, message):
         return
     await client.unban_chat_member(message.chat.id, user.id)
     result = (
+        f"```\n"
         f"• {stylish('USER')}   : [{user.first_name}](tg://user?id={user.id})\n"
         f"• {stylish('ACTION')} : Unbanned ✅"
+        f"```"
     )
-    await message.edit(build_output("❁═════⟬ ᴜɴʙᴀɴɴᴇᴅ ⟭═════❁", result), disable_web_page_preview=True)
+    await message.edit(
+        build_output("❁═════⟬ ᴜɴʙᴀɴɴᴇᴅ ⟭═════❁", result),
+        parse_mode=enums.ParseMode.MARKDOWN,
+        disable_web_page_preview=True
+    )
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -111,10 +130,15 @@ async def mute_command(client, message):
         ChatPermissions(can_send_messages=False)
     )
     result = (
+        f"```\n"
         f"• {stylish('USER')}   : [{user.first_name}](tg://user?id={user.id})\n"
         f"• {stylish('ACTION')} : Muted 🔇"
+        f"```"
     )
-    await message.edit(build_output("❁═════⟬ ᴍᴜᴛᴇᴅ ⟭═════❁", result), disable_web_page_preview=True)
+    await message.edit(
+        build_output("❁═════⟬ ᴍᴜᴛᴇᴅ ⟭═════❁", result),
+        parse_mode=enums.ParseMode.MARKDOWN,
+        disable_web_page_preview=True)
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -138,10 +162,15 @@ async def unmute_command(client, message):
         )
     )
     result = (
+        f"```\n"
         f"• {stylish('USER')}   : [{user.first_name}](tg://user?id={user.id})\n"
         f"• {stylish('ACTION')} : Unmuted 🔊"
+        f"```"
     )
-    await message.edit(build_output("❁═════⟬ ᴜɴᴍᴜᴛᴇᴅ ⟭═════❁", result), disable_web_page_preview=True)
+    await message.edit(
+        build_output("❁═════⟬ ᴜɴᴍᴜᴛᴇᴅ ⟭═════❁", result),
+        parse_mode=enums.ParseMode.MARKDOWN,
+        disable_web_page_preview=True)
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -153,15 +182,22 @@ async def unmute_command(client, message):
 @admin_check
 async def pin_command(client, message):
     if not message.reply_to_message:
-        await message.edit("**ᴜꜱᴀɢᴇ:** ᴋɪꜱɪ ᴍᴇꜱꜱᴀɢᴇ ᴋᴏ ʀᴇᴘʟʏ ᴋᴀʀᴋᴇ `.pin`")
+        await message.edit(
+            "**ᴜꜱᴀɢᴇ:** ᴋɪꜱɪ ᴍᴇꜱꜱᴀɢᴇ ᴋᴏ ʀᴇᴘʟʏ ᴋᴀʀᴋᴇ `.pin`",
+            parse_mode=enums.ParseMode.MARKDOWN
+        )
         return
+
     await client.pin_chat_message(message.chat.id, message.reply_to_message.id)
+
     await message.edit(
+        f"```\n"
         f"❁═════⟬ ᴘɪɴɴᴇᴅ ⟭═════❁\n\n"
         f"• {stylish('MESSAGE')} : Pinned ✅\n\n"
-        f"{OWNER_TAG}"
+        f"{OWNER_TAG}\n"
+        f"```",
+        parse_mode=enums.ParseMode.MARKDOWN
     )
-
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #   .ᴘᴜʀɢᴇ — Delete messages from reply to now
@@ -171,7 +207,10 @@ async def pin_command(client, message):
 @Client.on_message(filters.me & filters.command("purge", prefixes="."))
 async def purge_command(client, message):
     if not message.reply_to_message:
-        await message.edit("**ᴜꜱᴀɢᴇ:** ᴊᴀʜᴀɴ ꜱᴇ ᴅᴇʟᴇᴛᴇ ᴋᴀʀɴᴀ ʜᴏ ᴜꜱ ᴍᴇꜱꜱᴀɢᴇ ᴋᴏ ʀᴇᴘʟʏ ᴋᴀʀᴋᴇ `.purge`")
+        await message.edit(
+            "**ᴜꜱᴀɢᴇ:** ᴊᴀʜᴀɴ ꜱᴇ ᴅᴇʟᴇᴛᴇ ᴋᴀʀɴᴀ ʜᴏ ᴜꜱ ᴍᴇꜱꜱᴀɢᴇ ᴋᴏ ʀᴇᴘʟʏ ᴋᴀʀᴋᴇ `.purge`",
+            parse_mode=enums.ParseMode.MARKDOWN
+        )
         return
 
     start_id = message.reply_to_message.id
@@ -179,7 +218,6 @@ async def purge_command(client, message):
     ids      = list(range(start_id, end_id + 1))
     count    = 0
 
-    # Delete in chunks of 100
     for i in range(0, len(ids), 100):
         chunk = ids[i:i+100]
         deleted = await client.delete_messages(message.chat.id, chunk)
@@ -188,13 +226,16 @@ async def purge_command(client, message):
 
     confirm = await client.send_message(
         message.chat.id,
+        f"```\n"
         f"❁═════⟬ ᴘᴜʀɢᴇᴅ ⟭═════❁\n\n"
-        f"• {stylish('DELETED')} : `{count}` messages 🗑️\n\n"
-        f"{OWNER_TAG}"
+        f"• {stylish('DELETED')} : {count} messages 🗑️\n\n"
+        f"{OWNER_TAG}\n"
+        f"```",
+        parse_mode=enums.ParseMode.MARKDOWN
     )
+
     await asyncio.sleep(3)
     await confirm.delete()
-
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #   .ᴘʀᴏᴍᴏᴛᴇ — Promote user to admin
@@ -206,8 +247,12 @@ async def purge_command(client, message):
 async def promote_command(client, message):
     user = await get_target(client, message)
     if not user:
-        await message.edit("**ᴜꜱᴀɢᴇ:** ʀᴇᴘʟʏ ᴋᴀʀᴋᴇ `.promote`")
+        await message.edit(
+            "**ᴜꜱᴀɢᴇ:** ʀᴇᴘʟʏ ᴋᴀʀᴋᴇ `.promote`",
+            parse_mode=enums.ParseMode.MARKDOWN
+        )
         return
+
     await client.promote_chat_member(
         message.chat.id, user.id,
         can_manage_chat=True,
@@ -216,12 +261,17 @@ async def promote_command(client, message):
         can_invite_users=True,
         can_pin_messages=True
     )
+
     result = (
         f"• {stylish('USER')}   : [{user.first_name}](tg://user?id={user.id})\n"
         f"• {stylish('ACTION')} : Promoted to Admin ⭐"
     )
-    await message.edit(build_output("❁═════⟬ ᴘʀᴏᴍᴏᴛᴇᴅ ⟭═════❁", result), disable_web_page_preview=True)
 
+    await message.edit(
+        build_output("❁═════⟬ ᴘʀᴏᴍᴏᴛᴇᴅ ⟭═════❁", result),
+        parse_mode=enums.ParseMode.MARKDOWN,
+        disable_web_page_preview=True
+    )
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #   .ᴅᴇᴍᴏᴛᴇ — Remove admin rights
@@ -233,8 +283,12 @@ async def promote_command(client, message):
 async def demote_command(client, message):
     user = await get_target(client, message)
     if not user:
-        await message.edit("**ᴜꜱᴀɢᴇ:** ʀᴇᴘʟʏ ᴋᴀʀᴋᴇ `.demote`")
+        await message.edit(
+            "**ᴜꜱᴀɢᴇ:** ʀᴇᴘʟʏ ᴋᴀʀᴋᴇ `.demote`",
+            parse_mode=enums.ParseMode.MARKDOWN
+        )
         return
+
     await client.promote_chat_member(
         message.chat.id, user.id,
         can_manage_chat=False,
@@ -243,8 +297,14 @@ async def demote_command(client, message):
         can_invite_users=False,
         can_pin_messages=False
     )
+
     result = (
         f"• {stylish('USER')}   : [{user.first_name}](tg://user?id={user.id})\n"
         f"• {stylish('ACTION')} : Demoted 🔻"
     )
-    await message.edit(build_output("❁═════⟬ ᴅᴇᴍᴏᴛᴇᴅ ⟭═════❁", result), disable_web_page_preview=True)
+
+    await message.edit(
+        build_output("❁═════⟬ ᴅᴇᴍᴏᴛᴇᴅ ⟭═════❁", result),
+        parse_mode=enums.ParseMode.MARKDOWN,
+        disable_web_page_preview=True
+    )
