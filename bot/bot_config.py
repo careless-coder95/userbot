@@ -15,9 +15,7 @@ START_IMAGE = "assets/start.jpg"   # Apni image yahan rakhna
 START_TEXT = """
 ❁═════⟬ ꜱᴛᴀʀᴋ ᴜꜱᴇʀʙᴏᴛ ⟭═════❁
 
-𝛅 𝛕 ⋏ ᰻⃪᱂ 𐌺 ⋆ ‹𝟹  ***ᴡᴇʟᴄᴏᴍᴇ!***
-
-⍣⃪‌ ᶦ ‌ᵃᵐ⛦⃕‌***𝑺𝑻𝑨𝑹𝑲 𝑼𝑺𝑬𝑹𝑩𝑶𝑻***❛𝆺𝅥⤹࿗𓆪ꪾ™
+ ***ᴡᴇʟᴄᴏᴍᴇ!***
 
 _Apna khud ka userbot banao — sirf ek session se._
 _OSINT, Group Tools, Fun aur bahut kuch._
