@@ -1,0 +1,21 @@
+from pyrogram import Client
+from config import API_ID, API_HASH, STRING_SESSION
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#         ꜱᴛᴀʀᴋ ᴜꜱᴇʀʙᴏᴛ
+#         ʙʏ ᴍɪsᴛᴇʀ sᴛᴀʀᴋ
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+app = Client(
+    "stark_userbot",
+    session_string=STRING_SESSION,
+    api_id=API_ID,
+    api_hash=API_HASH,
+    plugins=dict(root="plugins")
+)
+
+if __name__ == "__main__":
+    print("━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+    print("  ꜱᴛᴀʀᴋ ᴜꜱᴇʀʙᴏᴛ ꜱᴛᴀʀᴛɪɴɢ...")
+    print("━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+    app.run()
