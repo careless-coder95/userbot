@@ -79,7 +79,7 @@ async def tts_command(client, message):
         await client.send_voice(
             chat_id=message.chat.id,
             voice=audio,
-            caption=f"🔊 **ᴛᴛꜱ**\n{OWNER_TAG}"
+            caption=f"🔊 **ᴛᴛꜱ**"
         )
     except Exception as e:
         await message.edit(f"❌ **Error:** `{e}`\n\n`pip install gtts` karo pehle!")
