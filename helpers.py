@@ -21,7 +21,7 @@ REMOVE_KEYS = {
     "branding", "developer", "processed_by",
     "owner_contact", "api_owner", "credit",
     "credits", "powered_by", "made_by",
-    "api_used", "api_name"
+    "api_used", "api_name", "Brand", "Message"
 }
 
 def remove_branding(data):
