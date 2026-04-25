@@ -93,7 +93,10 @@ async def help_command(client, message):
         key = args[1].strip().lower()
         if key not in HELP_MENU:
             cats = " | ".join(HELP_MENU.keys())
-            await message.edit(f"❌ **Category nahi mili!**\n\n**Available:** `{cats}`")
+            await message.edit(
+                f"❌ **Category nahi mili!**\n\n**Available:** `{cats}`",
+                parse_mode=enums.ParseMode.MARKDOWN
+            )
             return
 
         text = (
@@ -102,13 +105,17 @@ async def help_command(client, message):
             f"{DIVIDER}\n\n"
             f"{OWNER_TAG}"
         )
-        await message.edit(text)
+
+        await message.edit(
+            text,
+            parse_mode=enums.ParseMode.MARKDOWN
+        )
         return
 
-    # .help — overview of all categories
+    # .help — overview
     lines = [
         f"❁═════⟬ ꜱᴛᴀʀᴋ ᴜꜱᴇʀʙᴏᴛ ʜᴇʟᴘ ⟭═════❁\n",
-        f"𝛅 𝛕 ⋏ ᰻⃪᱂ 𐌺 ⋆ ‹𝟹  ***ʙʏ ᴍɪsᴛᴇʀ sᴛᴀʀᴋ***\n",
+        f" ***ʙʏ ᴍɪsᴛᴇʀ sᴛᴀʀᴋ***\n",
         f"{DIVIDER}\n",
     ]
 
@@ -120,4 +127,7 @@ async def help_command(client, message):
     lines.append(DIVIDER)
     lines.append(f"\n{OWNER_TAG}")
 
-    await message.edit("\n".join(lines))
+    await message.edit(
+        "\n".join(lines),
+        parse_mode=enums.ParseMode.MARKDOWN
+    )
