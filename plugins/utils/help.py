@@ -68,7 +68,7 @@ def format_category(key):
     lines = [f"{cat['emoji']} {stylish(cat['title'])}"]
     lines.append(DIVIDER)
     for cmd, desc in cat["commands"]:
-        lines.append(f"  • {cmd:<28}  {desc}")
+        lines.append(f"  ➥ {cmd:<28}  {desc}")
     return "\n".join(lines)
 
 
