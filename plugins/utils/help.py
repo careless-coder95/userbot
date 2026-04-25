@@ -89,9 +89,11 @@ async def help_command(client, message):
 
         body = format_category(key)
         text = (
-            f"❁═════⟬ ʜᴇʟᴘ : {HELP_MENU[key]['title']} ⟭═════❁\n"
-            f"```\n{body}\n```\n"
-            f"{OWNER_TAG}"
+            f"```\n"
+            f"❁═════⟬ ʜᴇʟᴘ : {HELP_MENU[key]['title']} ⟭═════❁\n\n"
+            f"{body}\n\n"
+            f"{OWNER_TAG}\n"
+            f"```"
         )
         await message.edit(text, parse_mode=enums.ParseMode.MARKDOWN)
         return
@@ -106,12 +108,16 @@ async def help_command(client, message):
 
     body = "\n".join(body_lines).strip()
     header = (
-        f"𝛅 𝛕 ⋏ ᰻⃪᱂ 𐌺 ⋆ ‹𝟹  ꜱᴛᴀʀᴋ ᴜꜱᴇʀʙᴏᴛ\n"
-        f"ʙʏ ᴍɪsᴛᴇʀ sᴛᴀʀᴋ"
+        f"ꜱᴛᴀʀᴋ ᴜꜱᴇʀʙᴏᴛ"
     )
     text = (
-        f"❁═════⟬ ʜᴇʟᴘ ᴍᴇɴᴜ ⟭═════❁\n"
-        f"```\n{header}\n\n{DIVIDER}\n\n{body}\n```\n"
-        f"{OWNER_TAG}"
+        f"```\n"
+        f"❁═════⟬ ʜᴇʟᴘ ᴍᴇɴᴜ ⟭═════❁\n\n"
+        f"{header}\n\n"
+        f"{DIVIDER}\n\n"
+        f"{body}\n\n"
+        f"{OWNER_TAG}\n"
+        f"```"
     )
     await message.edit(text, parse_mode=enums.ParseMode.MARKDOWN)
+
