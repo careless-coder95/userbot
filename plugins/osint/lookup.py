@@ -57,7 +57,7 @@ async def tg_command(client, message):
         args = message.text.split(None, 1)
         if len(args) < 2 or not args[1].strip():
             await message.edit(
-                "**ᴜꜱᴀɢᴇ:** `.tg {userid}` ʏᴀ ʀᴇᴘʟʏ ᴋᴀʀᴋᴇ `.tg`",
+                "**ᴜꜱᴀɢᴇ:** `.tg {userid}` ᴏʀ ʀᴇᴘʟʏ `.tg`",
                 parse_mode=enums.ParseMode.MARKDOWN
             )
             return
@@ -65,7 +65,7 @@ async def tg_command(client, message):
 
     await message.edit(f"🔎 **ꜱᴇᴀʀᴄʜɪɴɢ...** `{user_id}`", parse_mode=enums.ParseMode.MARKDOWN)
 
-    data = await call_api(f"{TG_API_URL}{user_id}&key={TG_API_KEY}")
+    data = await call_api(f"{TG_API_URL}{user_id}")
     if not data:
         await message.edit("❌ **ɴᴏ ʀᴇꜱᴜʟᴛ ꜰᴏᴜɴᴅ**", parse_mode=enums.ParseMode.MARKDOWN)
         return
