@@ -49,11 +49,9 @@ async def kick_command(client, message):
     await client.ban_chat_member(message.chat.id, user.id)
     await client.unban_chat_member(message.chat.id, user.id)
     result = (
-        f"```\n"
         f"• {stylish('USER')}   : [{user.first_name}](tg://user?id={user.id})\n"
         f"• {stylish('ID')}     : `{user.id}`\n"
         f"• {stylish('ACTION')} : Kicked ✅"
-        f"```"
     )
     await message.edit(
         build_output("❁═════⟬ ᴋɪᴄᴋᴇᴅ ⟭═════❁", result),
@@ -76,11 +74,9 @@ async def ban_command(client, message):
         return
     await client.ban_chat_member(message.chat.id, user.id)
     result = (
-        f"```\n"
         f"• {stylish('USER')}   : [{user.first_name}](tg://user?id={user.id})\n"
         f"• {stylish('ID')}     : `{user.id}`\n"
         f"• {stylish('ACTION')} : Banned 🔨"
-        f"```"
     )
     await message.edit(
         build_output("❁═════⟬ ʙᴀɴɴᴇᴅ ⟭═════❁", result),
@@ -102,10 +98,8 @@ async def unban_command(client, message):
         return
     await client.unban_chat_member(message.chat.id, user.id)
     result = (
-        f"```\n"
         f"• {stylish('USER')}   : [{user.first_name}](tg://user?id={user.id})\n"
         f"• {stylish('ACTION')} : Unbanned ✅"
-        f"```"
     )
     await message.edit(
         build_output("❁═════⟬ ᴜɴʙᴀɴɴᴇᴅ ⟭═════❁", result),
@@ -130,10 +124,8 @@ async def mute_command(client, message):
         ChatPermissions(can_send_messages=False)
     )
     result = (
-        f"```\n"
         f"• {stylish('USER')}   : [{user.first_name}](tg://user?id={user.id})\n"
-        f"• {stylish('ACTION')} : Muted 🔇"
-        f"```"
+        f"• {stylish('ACTION')} : Muted 🔇"  
     )
     await message.edit(
         build_output("❁═════⟬ ᴍᴜᴛᴇᴅ ⟭═════❁", result),
@@ -162,10 +154,8 @@ async def unmute_command(client, message):
         )
     )
     result = (
-        f"```\n"
         f"• {stylish('USER')}   : [{user.first_name}](tg://user?id={user.id})\n"
         f"• {stylish('ACTION')} : Unmuted 🔊"
-        f"```"
     )
     await message.edit(
         build_output("❁═════⟬ ᴜɴᴍᴜᴛᴇᴅ ⟭═════❁", result),
@@ -191,11 +181,9 @@ async def pin_command(client, message):
     await client.pin_chat_message(message.chat.id, message.reply_to_message.id)
 
     await message.edit(
-        f"```\n"
         f"❁═════⟬ ᴘɪɴɴᴇᴅ ⟭═════❁\n\n"
         f"• {stylish('MESSAGE')} : Pinned ✅\n\n"
-        f"{OWNER_TAG}\n"
-        f"```",
+        f"{OWNER_TAG}\n",
         parse_mode=enums.ParseMode.MARKDOWN
     )
 
@@ -226,11 +214,9 @@ async def purge_command(client, message):
 
     confirm = await client.send_message(
         message.chat.id,
-        f"```\n"
         f"❁═════⟬ ᴘᴜʀɢᴇᴅ ⟭═════❁\n\n"
         f"• {stylish('DELETED')} : {count} messages 🗑️\n\n"
-        f"{OWNER_TAG}\n"
-        f"```",
+        f"{OWNER_TAG}\n",
         parse_mode=enums.ParseMode.MARKDOWN
     )
 
