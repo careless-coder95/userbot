@@ -11,20 +11,33 @@ from helpers import call_api, remove_branding, format_response, build_output
 async def num_command(client, message):
     args = message.text.split(None, 1)
     if len(args) < 2 or not args[1].strip():
-        await message.edit("**ᴜꜱᴀɢᴇ:** `.num {number}`")
+        await message.edit(
+            "**ᴜꜱᴀɢᴇ:** `.num {number}`",
+            parse_mode=enums.ParseMode.MARKDOWN
+        )
         return
 
     number = args[1].strip()
-    await message.edit(f"🔎 **ꜱᴇᴀʀᴄʜɪɴɢ...** `{number}`")
+
+    await message.edit(
+        f"🔎 **ꜱᴇᴀʀᴄʜɪɴɢ...** `{number}`",
+        parse_mode=enums.ParseMode.MARKDOWN
+    )
 
     data = await call_api(f"{NUM_API_URL}{number}")
     if not data:
-        await message.edit("❌ **ɴᴏ ʀᴇꜱᴜʟᴛ ꜰᴏᴜɴᴅ**")
+        await message.edit(
+            "❌ **ɴᴏ ʀᴇꜱᴜʟᴛ ꜰᴏᴜɴᴅ**",
+            parse_mode=enums.ParseMode.MARKDOWN
+        )
         return
 
     result = format_response(remove_branding(data))
-    await message.edit(build_output("❁═════⟬ ɴᴜᴍʙᴇʀ ɪɴꜰᴏ ⟭═════❁", result))
 
+    await message.edit(
+        build_output("❁═════⟬ ɴᴜᴍʙᴇʀ ɪɴꜰᴏ ⟭═════❁", result),
+        parse_mode=enums.ParseMode.MARKDOWN
+    )
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #   .ᴛɢ — Telegram ID Lookup
@@ -44,20 +57,32 @@ async def tg_command(client, message):
     else:
         args = message.text.split(None, 1)
         if len(args) < 2 or not args[1].strip():
-            await message.edit("**ᴜꜱᴀɢᴇ:** `.tg {userid}` ʏᴀ ʀᴇᴘʟʏ ᴋᴀʀᴋᴇ `.tg`")
+            await message.edit(
+                "**ᴜꜱᴀɢᴇ:** `.tg {userid}` ʏᴀ ʀᴇᴘʟʏ ᴋᴀʀᴋᴇ `.tg`",
+                parse_mode=enums.ParseMode.MARKDOWN
+            )
             return
         user_id = args[1].strip()
 
-    await message.edit(f"🔎 **ꜱᴇᴀʀᴄʜɪɴɢ...** `{user_id}`")
+    await message.edit(
+        f"🔎 **ꜱᴇᴀʀᴄʜɪɴɢ...** `{user_id}`",
+        parse_mode=enums.ParseMode.MARKDOWN
+    )
 
     data = await call_api(f"{TG_API_URL}{user_id}&key={TG_API_KEY}")
     if not data:
-        await message.edit("❌ **ɴᴏ ʀᴇꜱᴜʟᴛ ꜰᴏᴜɴᴅ**")
+        await message.edit(
+            "❌ **ɴᴏ ʀᴇꜱᴜʟᴛ ꜰᴏᴜɴᴅ**",
+            parse_mode=enums.ParseMode.MARKDOWN
+        )
         return
 
     result = format_response(remove_branding(data))
-    await message.edit(build_output("❁═════⟬ ᴛᴇʟᴇɢʀᴀᴍ ɪɴꜰᴏ ⟭═════❁", result))
 
+    await message.edit(
+        build_output("❁═════⟬ ᴛᴇʟᴇɢʀᴀᴍ ɪɴꜰᴏ ⟭═════❁", result),
+        parse_mode=enums.ParseMode.MARKDOWN
+    )
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #   .ᴡʜᴏɪꜱ — User Info from Telegram itself
@@ -76,10 +101,16 @@ async def whois_command(client, message):
             try:
                 target = await client.get_users(args[1].strip())
             except Exception:
-                await message.edit("❌ **ᴜꜱᴇʀ ɴᴏᴛ ꜰᴏᴜɴᴅ**")
+                await message.edit(
+                    "❌ **ᴜꜱᴇʀ ɴᴏᴛ ꜰᴏᴜɴᴅ**",
+                    parse_mode=enums.ParseMode.MARKDOWN
+                )
                 return
         else:
-            await message.edit("**ᴜꜱᴀɢᴇ:** ʀᴇᴘʟʏ ᴋᴀʀᴋᴇ `.whois` ʏᴀ `.whois @username`")
+            await message.edit(
+                "**ᴜꜱᴀɢᴇ:** ʀᴇᴘʟʏ ᴋᴀʀᴋᴇ `.whois` ʏᴀ `.whois @username`",
+                parse_mode=enums.ParseMode.MARKDOWN
+            )
             return
 
     from helpers import stylish, DIVIDER
@@ -108,11 +139,19 @@ async def whois_command(client, message):
     ]
 
     result = "\n".join(lines)
+
     text = (
+        f"```\n"
         f"❁═════⟬ ᴡʜᴏɪꜱ ɪɴꜰᴏ ⟭═════❁\n"
         f"{DIVIDER}\n"
         f"{result}\n"
         f"{DIVIDER}\n\n"
-        f"{OWNER_TAG}"
+        f"{OWNER_TAG}\n"
+        f"```"
     )
-    await message.edit(text, disable_web_page_preview=True)
+
+    await message.edit(
+        text,
+        parse_mode=enums.ParseMode.MARKDOWN,
+        disable_web_page_preview=True
+    )
