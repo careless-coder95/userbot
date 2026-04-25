@@ -20,8 +20,8 @@ async def qr_command(client, message):
         chat_id=message.chat.id,
         photo=QR_IMAGE_PATH,
         caption=(
-            f"❁═════⟬ ᴍʏ ǫʀ ᴄᴏᴅᴇ ⟭═════❁\n\n"
-            f"{OWNER_TAG}"
+            f"❁═════⟬ ᴍʏ ǫʀ ᴄᴏᴅᴇ ⟭═════❁\n"
+            f"❁═══⟬ ᴍɪsᴛᴇʀ sᴛᴀʀᴋ ⟭═══❁"
         )
     )
 
