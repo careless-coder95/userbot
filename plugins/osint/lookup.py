@@ -5,11 +5,11 @@ from helpers import call_api, remove_branding, format_response, stylish
 
 def code_block(title, body):
     return (
-        f"{title}\n"
         f"```\n"
-        f"{body}\n"
-        f"```\n"
-        f"{OWNER_TAG}"
+        f"{title}\n\n"
+        f"{body}\n\n"
+        f"{OWNER_TAG}\n"
+        f"```"
     )
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
