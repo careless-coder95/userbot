@@ -20,6 +20,9 @@ def main_keyboard():
         [
             InlineKeyboardButton("👑 𝐎ᴡɴᴇʀ",           callback_data="owner"),
             InlineKeyboardButton("🆘 𝐒ᴜᴘᴘᴏʀᴛ", url="https://t.me/CarelessxWorld"),
+        [
+            InlineKeyboardButton("🛃 𝐆ᴇɴᴇʀᴀᴛᴇ 𝐒ᴇssɪᴏɴ", url="https://telegram.tools/session-string-generator#pyrogram,user"),
+        ],
         ],
         [
             InlineKeyboardButton("📋 𝐔sᴇʀʙᴏᴛ 𝐂ᴏᴍᴍᴀɴᴅs", callback_data="help"),
