@@ -15,33 +15,31 @@ START_IMAGE = "assets/start.jpg"   # Apni image yahan rakhna
 START_TEXT = """
 ❁═════⟬ ꜱᴛᴀʀᴋ ᴜꜱᴇʀʙᴏᴛ ⟭═════❁
 
- ***ᴡᴇʟᴄᴏᴍᴇ!***
-
-_Apna khud ka userbot banao — sirf ek session se._
-_OSINT, Group Tools, Fun aur bahut kuch._
+ **𝐖ᴇʟᴄᴏᴍᴇ!**
+𝐁ᴜɪʟᴅ ʏᴏᴜʀ ᴏᴡɴ ᴜsᴇʀʙᴏᴛ — ɪɴ ᴊᴜsᴛ ᴏɴᴇ sᴇssɪᴏɴ.
+𝐎sɪɴᴛ, 𝐆ʀᴏᴜᴘ 𝐓ᴏᴏʟs, 𝐅ᴜɴ, ᴀɴᴅ ᴍᴏʀᴇ.
 
 ❁════════════════════❁
 """
 
 OWNER_TEXT = """
+```
 ❁═════⟬ 👑 ᴏᴡɴᴇʀ ɪɴꜰᴏ ⟭═════❁
 
-```
-• NAME    : MISTER STARK
-• TG      : @CarelessxOwner
-• ROLE    : Creator & Developer
-• BOT     : STARK USERBOT
-```
-
-_For access & support contact owner._
+• 𝐍𝐀𝐌𝐄    : 𝐌ɪsᴛᴇʀ 𝐒ᴛᴀʀᴋ
+• 𝐔𝐒𝐄𝐑    : @CarelessxOwner
+• 𝐑𝐎𝐋𝐄    : 𝐂ʀᴇᴀᴛᴏʀ & 𝐃ᴇᴠʟᴏᴘᴇʀ
+• 𝐁𝐎𝐓     : 𝐒ᴛᴀʀᴋ 𝐔sᴇʀʙᴏᴛ
+_𝐅ᴏʀ ᴀᴄᴄᴇss & sᴜᴘᴘᴏʀᴛ ᴄᴏɴᴛᴀᴄᴛ ᴏᴡɴᴇʀ._
 
 ❁═══⟬ 𝑶𝒘𝒏𝒆𝒓: ᴍɪsᴛᴇʀ sᴛᴀʀᴋ ⟭═══❁
+```
 """
 
 HELP_TEXT = """
+```
 ❁═════⟬ 📋 ʜᴇʟᴘ & ᴄᴏᴍᴍᴀɴᴅꜱ ⟭═════❁
 
-```
 🔍 OSINT
   • .num {number}       Phone lookup
   • .tg  {id/reply}     Telegram lookup
@@ -68,36 +66,30 @@ HELP_TEXT = """
 
 📊 STATS
   • .ping / .uptime / .id
-```
 
 ❁═══⟬ 𝑶𝒘𝒏𝒆𝒓: ᴍɪsᴛᴇʀ sᴛᴀʀᴋ ⟭═══❁
+```
 """
 
 NOT_APPROVED_TEXT = """
-❁═════⟬ ❌ ᴀᴄᴄᴇꜱꜱ ᴅᴇɴɪᴇᴅ ⟭═════❁
+**❁═════⟬ ❌ ᴀᴄᴄᴇꜱꜱ ᴅᴇɴɪᴇᴅ ⟭═════❁**
 
-_Tumhe abhi access nahi mila hai._
+**_𝐘ᴏᴜ ʜᴀᴠᴇɴ'ᴛ ʀᴇᴄᴇɪᴠᴇᴅ ᴀᴄᴄᴇss ʏᴇᴛ._**
 
-👑 *Owner se contact karo:*
-@{owner}
+👑 **𝐂ᴏɴᴛᴀᴄᴛ ᴛʜᴇ 𝐎ᴡɴᴇʀ:**
+➥ [ @carelessxowner ]
 
-_Access milne ke baad yahan session add kar sakte ho._
-
-❁═══⟬ 𝑶𝒘𝒏𝒆𝒓: ᴍɪsᴛᴇʀ sᴛᴀʀᴋ ⟭═══❁
+**_𝐘ᴏᴜ ᴄᴀɴ ᴀᴅᴅ ᴀ sᴇssɪᴏɴ ʜᴇʀᴇ ᴏɴᴄᴇ ʏᴏᴜ ʜᴀᴠᴇ ᴀᴄᴄᴇss._**
 """
 
 SESSION_ASK_TEXT = """
+```
 ❁═════⟬ ➕ ᴀᴅᴅ ꜱᴇꜱꜱɪᴏɴ ⟭═════❁
 
-_Apna Pyrogram String Session paste karo._
+_𝐏ᴀsᴛᴇ ʏᴏᴜʀ 𝐏ʏᴘʀᴏɢʀᴀᴍ 𝐒ᴛʀɪɴɢ 𝐒ᴇssɪᴏɴ._
 
-```
-Kaise banate hain session?
-1. generate_session.py chalao
-2. Jo string mile woh yahan paste karo
-```
-
-⚠️ _Session kisi ko mat dena — isse tumhara account access ho sakta hai._
+⚠️ _𝐃ᴏɴ'ᴛ ɢɪᴠᴇ ʏᴏᴜʀ sᴇssɪᴏɴ ᴛᴏ ᴀɴʏᴏɴᴇ—ᴛʜɪs ᴄᴏᴜʟᴅ ɢɪᴠᴇ ʏᴏᴜ ᴀᴄᴄᴇss ᴛᴏ ʏᴏᴜʀ ᴀᴄᴄᴏᴜɴᴛ._
 
 ❁═══⟬ 𝑶𝒘𝒏𝒆𝒓: ᴍɪsᴛᴇʀ sᴛᴀʀᴋ ⟭═══❁
+```
 """
