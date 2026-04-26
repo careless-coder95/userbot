@@ -3,8 +3,8 @@
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 BOT_TOKEN   = ""        # BotFather se lo
-OWNER_ID    = 0         # Apna Telegram user ID
-OWNER_USER  = ""        # Apna username (without @)
+OWNER_ID    = 6567187829         # Apna Telegram user ID
+OWNER_USER  = "CarelessxOwner"        # Apna username (without @)
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #         ꜱᴛᴀʀᴛ ᴍᴇꜱꜱᴀɢᴇ
@@ -28,7 +28,7 @@ OWNER_TEXT = """
 
 ```
 • NAME    : MISTER STARK
-• TG      : @{owner}
+• TG      : @CarelessxOwner
 • ROLE    : Creator & Developer
 • BOT     : STARK USERBOT
 ```
