@@ -19,7 +19,7 @@ async def session_receiver(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if not is_approved(user.id):
         await update.message.reply_text(
-            "❌ *Tumhe access nahi hai.*",
+            "❌ ** ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴀccᴇss.**",
             parse_mode="Markdown"
         )
         return
@@ -29,12 +29,12 @@ async def session_receiver(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Basic validation
     if len(session_string) < 50:
         await update.message.reply_text(
-            "❌ *Yeh valid session nahi lagta!*\n\n_Sahi string paste karo._",
+            "❌ **𝐓ʜɪs ᴅᴏᴇs ɴᴏᴛ sᴇᴇᴍ ᴛᴏ ʙᴇ ᴀ ᴠᴀʟɪᴅ sᴇssɪᴏɴ!**\n\n**_𝐏ᴀsᴛᴇ ᴛʜᴇ ᴄᴏʀʀᴇᴄᴛ session_**",
             parse_mode="Markdown"
         )
         return
 
-    await update.message.reply_text("⏳ *Session verify ho raha hai...*", parse_mode="Markdown")
+    await update.message.reply_text("⏳ **𝐕ᴇʀʏꜰɪɴɢ 𝐒ᴇssɪᴏɴ...*", parse_mode="Markdown")
 
     # Try to start userbot with this session
     success, error = await start_userbot(user.id, session_string)
@@ -43,24 +43,22 @@ async def session_receiver(update: Update, context: ContextTypes.DEFAULT_TYPE):
         save_session(user.id, session_string)
         context.user_data["waiting_session"] = False
         await update.message.reply_text(
-            "❁═════⟬ ✅ ꜱᴜᴄᴄᴇꜱꜱ ⟭═════❁\n\n"
             "```\n"
+            "❁═════⟬ ✅ ꜱᴜᴄᴄᴇꜱꜱ ⟭═════❁\n\n"
             "• STATUS  : Userbot Started\n"
             "• SESSION : Saved\n"
             "• MODE    : Active\n"
-            "```\n"
-            "_Tumhara userbot ab chal raha hai!_\n\n"
-            "❁═══⟬ 𝑶𝒘𝒏𝒆𝒓: ᴍɪsᴛᴇʀ sᴛᴀʀᴋ ⟭═══❁",
+            "❁═══⟬ 𝐔sᴇʀʙᴏᴛ 𝐒ᴛᴀʀᴛᴇᴅ ⟭═══❁"
+            "```",
             parse_mode="Markdown"
         )
     else:
         await update.message.reply_text(
+            "```\n"
             f"❁═════⟬ ❌ ꜰᴀɪʟᴇᴅ ⟭═════❁\n\n"
-            f"```\n"
             f"• STATUS : Session Invalid\n"
             f"• ERROR  : {error}\n"
-            f"```\n"
-            f"_Sahi session generate karke dobara try karo._\n\n"
-            f"❁═══⟬ 𝑶𝒘𝒏𝒆𝒓: ᴍɪsᴛᴇʀ sᴛᴀʀᴋ ⟭═══❁",
+            f"❁═══⟬ 𝐔sᴇʀʙᴏᴛ 𝐅ᴀɪʟᴇᴅ ⟭═══❁"
+            "```",
             parse_mode="Markdown"
         )
