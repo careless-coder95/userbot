@@ -34,7 +34,7 @@ async def session_receiver(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
         return
 
-    await update.message.reply_text("⏳ **𝐕ᴇʀʏꜰɪɴɢ 𝐒ᴇssɪᴏɴ...*", parse_mode="Markdown")
+    await update.message.reply_text("⏳ **𝐕ᴇʀʏꜰɪɴɢ 𝐒ᴇssɪᴏɴ...**", parse_mode="Markdown")
 
     # Try to start userbot with this session
     success, error = await start_userbot(user.id, session_string)
