@@ -3,7 +3,7 @@ from telegram.ext import (
     Application, CommandHandler,
     CallbackQueryHandler, MessageHandler, filters
 )
-from bot.config import BOT_TOKEN
+from bot.bot_config import BOT_TOKEN
 from bot.database import init_db
 from bot.handlers.start   import start_handler, callback_handler
 from bot.handlers.session import session_receiver
