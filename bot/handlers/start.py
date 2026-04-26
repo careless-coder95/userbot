@@ -15,17 +15,20 @@ from bot.database import add_user, is_approved, is_banned
 def main_keyboard():
     return InlineKeyboardMarkup([
         [
-            InlineKeyboardButton("👑 Owner",           callback_data="owner"),
-            InlineKeyboardButton("📋 Help & Commands", callback_data="help"),
+            InlineKeyboardButton("➕ 𝐀ᴅᴅ 𝐘ᴏᴜ 𝐒ᴇssɪᴏɴ", callback_data="add_session"),
         ],
         [
-            InlineKeyboardButton("➕ Add Your Session", callback_data="add_session"),
-        ]
+            InlineKeyboardButton("👑 𝐎ᴡɴᴇʀ",           callback_data="owner"),
+            InlineKeyboardButton("🆘 𝐒ᴜᴘᴘᴏʀᴛ", url="https://t.me/CarelessxWorld"),
+        ],
+        [
+            InlineKeyboardButton("📋 𝐔sᴇʀʙᴏᴛ 𝐂ᴏᴍᴍᴀɴᴅs", callback_data="help"),
+        ],
     ])
 
 def back_keyboard():
     return InlineKeyboardMarkup([
-        [InlineKeyboardButton("🔙 Back", callback_data="back")]
+        [InlineKeyboardButton("🔙 𝐁𝐀𝐂𝐊", callback_data="back")]
     ])
 
 
@@ -38,7 +41,7 @@ async def start_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     add_user(user.id, user.username)
 
     if is_banned(user.id):
-        await update.message.reply_text("❌ *Tumhe ban kar diya gaya hai.*", parse_mode="Markdown")
+        await update.message.reply_text("❌ **ʏᴏᴜ ᴀʀᴇ ʙᴀɴɴᴇᴅ !! **", parse_mode="Markdown")
         return
 
     if os.path.exists(START_IMAGE):
@@ -90,7 +93,7 @@ async def callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     elif data == "add_session":
         if is_banned(user.id):
-            await query.answer("❌ Tumhe ban kar diya gaya hai.", show_alert=True)
+            await query.answer("❌ ʏᴏᴜ ᴀʀᴇ ʙᴀɴɴᴇᴅ !!", show_alert=True)
             return
 
         if not is_approved(user.id):
