@@ -94,9 +94,10 @@ async def ai_command(client, message):
     reply = await ask_groq(query)
 
     await message.edit(
+        f"```\n"
         f"❁═════⟬ 🤖 ᴊᴀʀᴠɪꜱ ⟭═════❁\n\n"
-        f"{reply}\n\n"
-        f"❁═══⟬ 𝑶𝒘𝒏𝒆𝒓: ᴍɪsᴛᴇʀ sᴛᴀʀᴋ ⟭═══❁",
+        f"{reply}\n"
+        f"```",
         parse_mode=enums.ParseMode.MARKDOWN
     )
 
@@ -123,8 +124,9 @@ async def jarvis_trigger(client, message):
     reply = await ask_groq(query)
 
     await message.edit(
+        f"```/n"
         f"❁═════⟬ 🤖 ᴊᴀʀᴠɪꜱ ⟭═════❁\n\n"
-        f"{reply}\n\n"
-        f"❁═══⟬ 𝑶𝒘𝒏𝒆𝒓: ᴍɪsᴛᴇʀ sᴛᴀʀᴋ ⟭═══❁",
+        f"{reply}\n"
+        f"```",
         parse_mode=enums.ParseMode.MARKDOWN
     )
