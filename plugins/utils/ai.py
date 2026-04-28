@@ -107,26 +107,26 @@ async def ai_command(client, message):
 #   Only triggers when message STARTS with "Jarvis"
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-@Client.on_message(filters.me & filters.text & filters.regex(r"^[Jj]arvis(.*)"))
-async def jarvis_trigger(client, message):
-    text = message.text.strip()
-
-    # Extract query after "Jarvis"
-    query = text[6:].strip()  # len("Jarvis") = 6
-
-    # Empty — just greeting
-    if not query:
-        await message.edit("Hello Sir! Kuch kaam ho toh batao. 🤖")
+@Client.on_message(filters.me & filters.command("jarvis", prefixes=""))
+async def jarvis_command(client, message):
+    args = message.text.split(None, 1)
+    if len(args) < 2 or not args[1].strip():
+        await message.edit(
+            "**ᴜꜱᴀɢᴇ:** `jarvis {query}`",
+            parse_mode=enums.ParseMode.MARKDOWN
+        )
         return
 
+    query = args[1].strip()
     await message.edit("```\nJARVIS is thinking...\n```", parse_mode=enums.ParseMode.MARKDOWN)
 
     reply = await ask_groq(query)
 
     await message.edit(
-        f"```/n"
+        f"```\n"
         f"❁═════⟬ 🤖 ᴊᴀʀᴠɪꜱ ⟭═════❁\n\n"
         f"{reply}\n"
         f"```",
         parse_mode=enums.ParseMode.MARKDOWN
     )
+    
