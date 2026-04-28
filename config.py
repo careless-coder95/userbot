@@ -11,7 +11,7 @@ STRING_SESSION = ""  # generate_session.py chala ke lo
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 NUM_API_URL = ""     # Phone number lookup API URL (no key)
-TG_API_URL  = "https://stark-free-osint-api.vercel.app/info?type=tg&tg_id="
+TG_API_URL  = ""
 TG_API_KEY  = ""     # TG lookup API key
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -26,3 +26,5 @@ QR_IMAGE_PATH = "assets/qr.jpg"  # Apna QR image yahan rakhna
 
 OWNER_TAG = "❁═══⟬ 𝑶𝒘𝒏𝒆𝒓: ᴍɪsᴛᴇʀ sᴛᴀʀᴋ ⟭═══❁"
 DIVIDER   = "❁════════════════════❁"
+
+GROQ_AI = ""
